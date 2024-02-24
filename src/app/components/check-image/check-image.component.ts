@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
+import { PokeListComponent } from '../poke-list/poke-list.component';
 
 @Component({
     selector: 'app-check-image',
     standalone: true,
-    imports: [MatChipsModule],
+    imports: [MatChipsModule, PokeListComponent],
     templateUrl: './check-image.component.html',
     styleUrl: './check-image.component.css',
 })
 export class CheckImageComponent {
-   gifSelecionado: boolean = false;
+    @Output() changeImg: EventEmitter<any> = new EventEmitter();
 
     verificar_imagem() {
-        // this.gifSelecionado = !this.gifSelecionado;
-        console.log(this.gifSelecionado);
+        this.changeImg.emit();
     }
 
     constructor() {}

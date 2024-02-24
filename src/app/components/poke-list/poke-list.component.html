@@ -1,8 +1,14 @@
+<!-- filho -->
+
 <!-- <button class="text-black bg-white" (click)="toggleImg_Gif()">alterar</button> -->
 
-<app-check-image (click)="toggleImg_Gif()"></app-check-image>
+<app-check-image (changeImg)="onChangeImg()"></app-check-image>
 
-<p class="text-white">Estado do Gif: {{ pokemonImg }}</p>
+<!-- <p class="text-white">Estado do Gif: {{ pokemonImg }}</p> -->
+<p class="text-white">
+    Gif Ativado: {{pokemonImg}}
+
+</p>
 
 <section class="gap-5 grid grid-cols-2">
     @for (pokemon of getAllPokemons; track getAllPokemons) { @if (pokemon.status) {
@@ -25,7 +31,12 @@
         -->
         <section class="flex justify-center items-center">
             <picture>
-                <img [src]="pokemonImg ? pokemon.status.sprites.versions['generation-v']['black-white'].animated.front_default : pokemon.status.sprites.other.dream_world.front_default " loading="eager" class="mt-8 w-20 h-auto" [alt]="pokemon.name" />
+                <img
+                    [src]="pokemonImg ? pokemon.status.sprites.versions['generation-v']['black-white'].animated.front_default : pokemon.status.sprites.other.dream_world.front_default"
+                    loading="eager"
+                    class="mt-8 w-20 h-auto"
+                    [alt]="pokemon.name"
+                />
             </picture>
         </section>
     </a>

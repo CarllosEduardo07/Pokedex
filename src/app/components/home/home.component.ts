@@ -7,7 +7,7 @@ import { CheckImageComponent } from '../check-image/check-image.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [PokeHeaderComponent, PokeSearchComponent, CheckImageComponent, PokeListComponent],
+  imports: [PokeHeaderComponent, PokeSearchComponent, CheckImageComponent, PokeListComponent, PokeListComponent, CheckImageComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
