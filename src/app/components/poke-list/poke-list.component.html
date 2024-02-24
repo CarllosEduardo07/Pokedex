@@ -1,0 +1,33 @@
+<!-- <button class="text-black bg-white" (click)="toggleImg_Gif()">alterar</button> -->
+
+<app-check-image (click)="toggleImg_Gif()"></app-check-image>
+
+<p class="text-white">Estado do Gif: {{ pokemonImg }}</p>
+
+<section class="gap-5 grid grid-cols-2">
+    @for (pokemon of getAllPokemons; track getAllPokemons) { @if (pokemon.status) {
+    <a href="" class="w-full h-40 flex justify-around items-center bg-white rounded-lg">
+        <section>
+            <h2 class="mb-2 text-2xl italic font-bold capitalize">
+                {{ pokemon.name }}
+            </h2>
+
+            <ul class="flex flex-col gap-2">
+                @for (value of pokemon.status.types; track getAllPokemons) {
+                <li class="w-14 h-4 px-10 py-3 bg-statusPokemon text-sm flex justify-center items-center rounded-full">
+                    {{ value.type.name }}
+                </li>
+                }
+            </ul>
+        </section>
+        <!-- caminho do gif
+    pokemon.status.sprites.versions['generation-v']['black-white'].animated.front_default 
+        -->
+        <section class="flex justify-center items-center">
+            <picture>
+                <img [src]="pokemonImg ? pokemon.status.sprites.versions['generation-v']['black-white'].animated.front_default : pokemon.status.sprites.other.dream_world.front_default " loading="eager" class="mt-8 w-20 h-auto" [alt]="pokemon.name" />
+            </picture>
+        </section>
+    </a>
+    } }
+</section>
