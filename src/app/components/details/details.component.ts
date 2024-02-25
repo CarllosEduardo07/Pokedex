@@ -27,10 +27,10 @@ export class DetailsComponent implements OnInit {
     constructor(private activatedRoute: ActivatedRoute, private service: PokeApiService) {}
 
     ngOnInit(): void {
-        this.getPokemon;
+        this.getPokemon();
     }
 
-    get getPokemon() {
+    public getPokemon() {
         //pegando o paramentro do ID passado pela URL
         const id = this.activatedRoute.snapshot.params['id'];
         //puxando as duas URL de detalhes do pokemon
