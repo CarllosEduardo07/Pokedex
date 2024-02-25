@@ -19,17 +19,13 @@ export class PokeApiService {
             tap(res => {
                 //all nomes dos pokemons
                 res.results.map((resPokemons: any) => {
-                    this.apiGetPokemons(resPokemons.url).subscribe(
-                        res => resPokemons.status = res
-                        );
+                    this.apiGetPokemons(resPokemons.url).subscribe(res => (resPokemons.status = res));
                 });
-            })
+            }),
         );
     }
 
     public apiGetPokemons(url: string): Observable<any> {
-        return this.http.get<any>(url).pipe(
-            map(res => res)
-            );
+        return this.http.get<any>(url).pipe(map(res => res));
     }
 }

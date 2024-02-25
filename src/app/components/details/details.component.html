@@ -1,1 +1,30 @@
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est modi hic eligendi accusantium labore quas voluptatum dicta! Laborum nesciunt exercitationem beatae, esse, explicabo facilis quas ex quisquam inventore ratione fugiat.</p>
+<app-poke-header></app-poke-header>
+
+<main class="m-auto max-w-2xl h-3/4  rounded-3xl ">
+    <section class="px-10 py-5 flex items-end flex-col justify-end">
+        <span class="text-7xl text-slate-500">{{ pokemon[1].names[0].name }}</span>
+        <span class="text-4xl text-white font-bold capitalize italic">{{ pokemon[0].name }}</span>
+    </section>
+
+    <section class="max-h-full flex flex-col justify-center  bg-white rounded-3xl relative">
+        <img [src]="pokemon[0].sprites.other.dream_world.front_default" [alt]="pokemon[0].name" class="absolute -top-32 left-8 w-36 z-20"/>
+
+        <article class="h-full  flex flex-col p-10 z-10">
+            <section class="flex flex-col mt-7">              
+                    <span class="my-5 text-3xl text-center text-secondary font-bold underline italic">Estatísticas</span>
+                    <ol class="mb-44">
+                        @for (value of pokemon[0].stats; track pokemon[0].stats) {
+                        <li class="text-xl flex justify-between items-center capitalize">
+                            {{ value.stat.name }}
+                            <strong>
+                                {{ value.base_stat }}
+                            </strong>
+                        </li>
+                        }
+                    </ol>
+              
+                <a [routerLink]="''" routerLinkActive="active" ariaCurrentWhenActive="page" class="h-14 text-white text-lg rounded-xl flex items-center justify-center bg-secondary">Voltar</a>
+            </section>
+        </article>
+    </section>
+</main>
