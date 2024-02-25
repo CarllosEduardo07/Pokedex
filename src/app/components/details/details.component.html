@@ -3,15 +3,15 @@
 <main class="mt-20 m-auto max-w-2xl">
     @if (isLoading) {
     <section class="px-10 mb-2 flex items-end flex-col justify-end relative">
-        <span class="text-7xl text-slate-500 absolute bottom-7 right-0">{{ pokemon[1].names[0].name }}</span>
+        <span class="text-7xl text-slate-500 absolute bottom-7 right-0 fadeLeft">{{ pokemon[1].names[0].name }}</span>
         <!-- Nome -->
-        <span class="text-4xl text-white font-bold capitalize italic">{{ pokemon[0].name }}</span>
+        <span class="text-4xl text-white font-bold capitalize italic fadeRight">{{ pokemon[0].name }}</span>
     </section>
 
     <section class="flex flex-col justify-center bg-white rounded-3xl relative">
-        <img [src]="pokemon[0].sprites.other.dream_world.front_default" [alt]="pokemon[0].name" class="absolute -top-32 left-8 w-40" />
+        <img [src]="pokemon[0].sprites.other.dream_world.front_default" [alt]="pokemon[0].name" class="absolute -top-32 left-8 w-40 fadeDown" />
         <!-- Estatisticas -->
-        <article class="h-full flex flex-col p-10 z-10">
+        <article class="h-full flex flex-col p-10 z-10 fade">
             <section class="flex flex-col mt-12">
                 <span class="my-5 text-3xl text-center text-secondary font-bold underline italic">Estatísticas</span>
                 <ol class="mb-44">
@@ -29,8 +29,7 @@
             </section>
         </article>
     </section>
-    }
-    @if (apiError) {
-        <img src="./assets/error.png" alt="Erro ao carregar o pokemon"  width="1000"/>
+    } @if (apiError) {
+    <img src="./assets/error.png" alt="Erro ao carregar o pokemon" width="1000" />
     }
 </main>

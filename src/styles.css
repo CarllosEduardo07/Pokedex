@@ -3,3 +3,18 @@
 @tailwind utilities;
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@layer utilities {
+    .fadeDown {
+        @apply animate-fade-down animate-once animate-ease-in-out animate-normal animate-fill-forwards
+    }
+    .fadeRight{
+        @apply animate-fade-right animate-once animate-ease-in-out animate-normal animate-fill-forwards
+    }
+    .fadeLeft{
+        @apply animate-fade-left animate-once animate-ease-in-out animate-normal animate-fill-forwards
+    }
+    .fade{
+        @apply animate-fade animate-once animate-ease-in-out animate-normal animate-fill-forwards
+    }
+}
