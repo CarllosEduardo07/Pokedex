@@ -21,6 +21,8 @@ export class PokeListComponent implements OnInit {
     private setAllPokemons: any;
     public getAllPokemons: any;
 
+    public apiError: boolean = false;
+
     // evento output/emitter do button gif
     onChangeImg(): void {
         this.pokemonImg = !this.pokemonImg;
@@ -35,7 +37,10 @@ export class PokeListComponent implements OnInit {
             this.setAllPokemons = res.results;
             this.getAllPokemons = this.setAllPokemons;
             // console.log(this.getAllPokemons);
-        });
+        },error =>{
+            this.apiError = true
+        }
+        );
     }
 
     // o evento do search, pegando tudo que o usuario digita
