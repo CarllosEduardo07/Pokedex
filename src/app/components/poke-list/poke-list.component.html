@@ -1,11 +1,9 @@
 <!-- pai -->
 <app-poke-search (emmitSearch)="onEmmitSearch($event)"></app-poke-search>
-
-
-
 <!-- button gif -->
 <app-check-image (changeImg)="onChangeImg()"></app-check-image>
 
+@defer (on timer (1500ms)) {
 <section class="gap-5 grid grid-cols-2">
     @for (pokemon of getAllPokemons; track getAllPokemons) { @if (pokemon.status) {
     <a [routerLink]="'/details/' + pokemon.status.id" routerLinkActive="active" ariaCurrentWhenActive="page" class="w-full h-44 flex justify-around bg-white rounded-lg">
@@ -41,5 +39,8 @@
 </section>
 @if (apiError) {
     <img src="./assets/error.png" alt="Erro ao carregar o pokemon"  width="1000"/>
+} 
+}@placeholder {
+    <app-page-loading></app-page-loading>
 }
 

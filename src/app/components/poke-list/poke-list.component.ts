@@ -6,11 +6,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CheckImageComponent } from '../check-image/check-image.component';
 import { RouterLink } from '@angular/router';
 import { PokeSearchComponent } from '../poke-search/poke-search.component';
+import { PageLoadingComponent } from '../page-loading/page-loading.component';
 
 @Component({
     selector: 'app-poke-list',
     standalone: true,
-    imports: [CheckImageComponent, PokeSearchComponent, HttpClientModule, MatFormFieldModule, RouterLink], //importa o HttpClientModule, para o componente que vai usar
+    imports: [CheckImageComponent, PokeSearchComponent, PageLoadingComponent, HttpClientModule, MatFormFieldModule, RouterLink], //importa o HttpClientModule, para o componente que vai usar
     providers: [PokeApiService], //importando services'
     templateUrl: './poke-list.component.html',
     styleUrl: './poke-list.component.css',
