@@ -45,7 +45,7 @@ export class PokeListComponent implements OnInit {
             },
         );
         this.pagePokemon()
-        console.log(this.pagePokemon())
+        // console.log(this.pagePokemon())
     }
 
     // o evento do search, pegando tudo que o usuario digita
@@ -63,7 +63,7 @@ export class PokeListComponent implements OnInit {
                 this.page = res;
                 // passando a url next Page, para fazer a paginação
                 this.page = this.page.next;
-                console.log(this.page);
+                // console.log(this.page);
             }
         });
     }

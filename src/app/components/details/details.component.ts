@@ -4,11 +4,12 @@ import { PokeHeaderComponent } from '../poke-header/poke-header.component';
 import { PokeApiService } from '../../services/poke-api.service';
 import { forkJoin } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
+import { CheckImageComponent } from '../check-image/check-image.component';
 
 @Component({
     selector: 'app-details',
     standalone: true,
-    imports: [PokeHeaderComponent, HttpClientModule, RouterLink],
+    imports: [PokeHeaderComponent, CheckImageComponent, HttpClientModule, RouterLink],
     providers: [PokeApiService],
     templateUrl: './details.component.html',
     styleUrl: './details.component.css',
@@ -19,9 +20,14 @@ export class DetailsComponent implements OnInit {
 
     //mostrando o pokemon na pagina details
     public pokemon: any;
-
+    pokemonImg_Gif: boolean = false
     public isLoading: boolean = false;
     public apiError: boolean = false;
+
+// mudar imagem para Gif
+    onChangeImgPageDetails(){
+        this.pokemonImg_Gif = !this.pokemonImg_Gif
+    }
 
     //pegando o paramentro do ID passado pela URL
     constructor(private activatedRoute: ActivatedRoute, private service: PokeApiService) {}
