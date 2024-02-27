@@ -3,6 +3,9 @@
 <!-- button gif -->
 <app-check-image (changeImg)="onChangeImg()"></app-check-image>
 
+<!-- Paginação -->
+<!-- <app-pagination></app-pagination> -->
+
 @defer (on timer (1500ms)) {
 <section class="gap-5 grid grid-cols-2">
     @for (pokemon of getAllPokemons; track getAllPokemons) { @if (pokemon.status) {
@@ -14,7 +17,7 @@
 
             <ul class="flex flex-col gap-2">
                 @for (value of pokemon.status.types; track getAllPokemons) {
-                <li class="size-1 px-10 py-3 bg-statusPokemon text-sm flex justify-center items-center rounded-full capitalize">
+                <li [id]="value.type.name" class="size-1 px-10 py-3 bg-statusPokemon text-sm flex justify-center items-center rounded-full capitalize">
                     {{ value.type.name }}
                 </li>
                 }
@@ -38,9 +41,7 @@
     } }
 </section>
 @if (apiError) {
-    <img src="./assets/error.png" alt="Erro ao carregar o pokemon"  width="1000"/>
-} 
-}@placeholder {
-    <app-page-loading></app-page-loading>
+<img src="./assets/error.png" alt="Erro ao carregar o pokemon" width="1000" />
+} }@placeholder {
+<app-page-loading></app-page-loading>
 }
-

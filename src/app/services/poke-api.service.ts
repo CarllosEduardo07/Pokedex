@@ -25,7 +25,13 @@ export class PokeApiService {
         );
     }
 
+  
+// conexao com a api
     public apiGetPokemons(url: string): Observable<any> {
         return this.http.get<any>(url).pipe(map(res => res));
     }
+
+    // public getPokemonPage(page: number, size: number): Observable<any>{
+    //     return this.http.get(`https://pokeapi.co/api/v2/pokemon/?offset=${page}&limit=${size}`)
+    // }
 }

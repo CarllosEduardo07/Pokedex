@@ -2,22 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { PokeApiService } from '../../services/poke-api.service';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { CheckImageComponent } from '../check-image/check-image.component';
 import { RouterLink } from '@angular/router';
 import { PokeSearchComponent } from '../poke-search/poke-search.component';
 import { PageLoadingComponent } from '../page-loading/page-loading.component';
+import { PaginationComponent } from '../pagination/pagination.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-poke-list',
     standalone: true,
-    imports: [CheckImageComponent, PokeSearchComponent, PageLoadingComponent, HttpClientModule, MatFormFieldModule, RouterLink], //importa o HttpClientModule, para o componente que vai usar
+    imports: [CheckImageComponent, PokeSearchComponent, PageLoadingComponent, PaginationComponent, HttpClientModule, RouterLink, CommonModule], //importa o HttpClientModule, para o componente que vai usar
     providers: [PokeApiService], //importando services'
     templateUrl: './poke-list.component.html',
     styleUrl: './poke-list.component.css',
 })
 export class PokeListComponent implements OnInit {
     pokemonImg: boolean = false;
+    private page: any;
+    private listaAllPokemons: any;
 
     private setAllPokemons: any;
     public getAllPokemons: any;
@@ -33,15 +36,16 @@ export class PokeListComponent implements OnInit {
 
     // comunicação com a api do services
     ngOnInit(): void {
-        // console.log(this.pokemonImg);
-        this.service.apiListAllPokemons.subscribe(res => {
-            this.setAllPokemons = res.results;
-            this.getAllPokemons = this.setAllPokemons;
-            // console.log(this.getAllPokemons);
-        },error =>{
-            this.apiError = true
-        }
+        this.service.apiListAllPokemons.subscribe(
+            res => {
+                this.setAllPokemons = res.results;
+                this.getAllPokemons = this.setAllPokemons;
+            },
+            error => {
+                this.apiError = true;
+            },
         );
+        // this.pagePokemon(0, 10); // tamanho da pagina default
     }
 
     // o evento do search, pegando tudo que o usuario digita
@@ -51,4 +55,16 @@ export class PokeListComponent implements OnInit {
         });
         this.getAllPokemons = filter;
     }
+
+    // // paginação
+    // pagePokemon(page: number, size: number) {
+    //     this.service.getPokemonPage(page, size).subscribe(res => {
+    //         if (res) {
+    //             this.page = res;
+    //             this.listaAllPokemons = this.page.results;
+    //         }
+    //         // console.log(this.page);
+    //     });
+    // }
+   
 }
