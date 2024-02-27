@@ -18,13 +18,12 @@ import { CommonModule } from '@angular/common';
     styleUrl: './poke-list.component.css',
 })
 export class PokeListComponent implements OnInit {
+    page: any
+
     pokemonImg: boolean = false;
-    private page: any;
-    private listaAllPokemons: any;
 
     private setAllPokemons: any;
     public getAllPokemons: any;
-
     public apiError: boolean = false;
 
     // evento output/emitter do button gif
@@ -45,7 +44,8 @@ export class PokeListComponent implements OnInit {
                 this.apiError = true;
             },
         );
-        // this.pagePokemon(0, 10); // tamanho da pagina default
+        this.pagePokemon()
+        console.log(this.pagePokemon())
     }
 
     // o evento do search, pegando tudo que o usuario digita
@@ -56,15 +56,16 @@ export class PokeListComponent implements OnInit {
         this.getAllPokemons = filter;
     }
 
-    // // paginação
-    // pagePokemon(page: number, size: number) {
-    //     this.service.getPokemonPage(page, size).subscribe(res => {
-    //         if (res) {
-    //             this.page = res;
-    //             this.listaAllPokemons = this.page.results;
-    //         }
-    //         // console.log(this.page);
-    //     });
-    // }
+    // paginação
+    pagePokemon(page: number = 1) {
+        this.service.getPokemonPage().subscribe(res => {
+            if (res) {
+                this.page = res;
+                // passando a url next Page, para fazer a paginação
+                this.page = this.page.next;
+                console.log(this.page);
+            }
+        });
+    }
    
 }
