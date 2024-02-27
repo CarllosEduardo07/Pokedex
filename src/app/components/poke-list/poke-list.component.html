@@ -11,9 +11,12 @@
     @for (pokemon of getAllPokemons; track getAllPokemons) { @if (pokemon.status) {
     <a [routerLink]="'/details/' + pokemon.status.id" routerLinkActive="active" ariaCurrentWhenActive="page" class="w-full h-44 flex justify-around bg-white rounded-lg">
         <section class="mt-5 flex flex-col gap-3">
-            <span class="text-2xl italic font-semibold capitalize">
-                {{ pokemon.name }}
-            </span>
+            <div class="space-x-1">
+                <span class="text-2xl italic font-semibold capitalize">
+                    {{ pokemon.name }}
+                </span>
+                <span class="text-ms text-zinc-400">#{{pokemon.status.id}}</span>
+            </div>
 
             <ul class="flex flex-col gap-2">
                 @for (value of pokemon.status.types; track getAllPokemons) {
@@ -23,10 +26,10 @@
                 }
             </ul>
         </section>
-        
+
         <section class="flex justify-center items-center">
             <picture class="flex items-center justify-center">
-                <img src="./assets/background/background-list-pokemons.svg" alt="" class="mt-8 absolute" />
+                <img src="./assets/background/background-list-pokemons.svg" alt="fundo" class="mt-8 mr-10 absolute" />
                 <img
                     [src]="pokemonImg ? pokemon.status.sprites.versions['generation-v']['black-white'].animated.front_default : pokemon.status.sprites.other.dream_world.front_default"
                     loading="eager"

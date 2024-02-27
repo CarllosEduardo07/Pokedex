@@ -52,7 +52,5 @@ export class DetailsComponent implements OnInit {
                 this.apiError = true;
             },
         );
-
-        // return console.log(id);
     }
 }

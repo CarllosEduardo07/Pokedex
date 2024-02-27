@@ -1,35 +1,51 @@
 <app-poke-header></app-poke-header>
 
-<main class="mt-20 m-auto max-w-2xl">
+<main class="h-screen mt-20 m-auto max-w-2xl">
     @if (isLoading) {
     <section class="px-10 mb-2 flex items-end flex-col justify-end relative">
         <span class="text-7xl text-slate-500 absolute bottom-7 right-0 fadeLeft">{{ pokemon[1].names[0].name }}</span>
         <!-- Nome -->
-        <span class="text-4xl text-white font-bold capitalize italic fadeRight">{{ pokemon[0].name }}</span>
+        <div class="space-x-3">
+            <span class="text-4xl text-white font-bold capitalize italic fadeRight">{{ pokemon[0].name }}</span>
+            <span class="text-lg text-zinc-400">#{{pokemon[0].id}}</span>
+        </div>
     </section>
 
-    <section class="flex flex-col justify-center bg-white rounded-3xl relative">
+    <section class="h-5/6 flex flex-col justify-center bg-white rounded-3xl relative">
         <img [src]="pokemonImg_Gif ? pokemon[0].sprites.versions['generation-v']['black-white'].animated.front_default : pokemon[0].sprites.other.dream_world.front_default" [alt]="pokemon[0].name" class="absolute -top-32 left-8 w-40 fadeDown" />
         <!-- button gif  -->
         <app-check-image (changeImg)="onChangeImgPageDetails()" class="pt-5 px-5 flex justify-end"></app-check-image>
         <!-- Estatisticas -->
-        <article class="h-full flex flex-col pb-10 px-10 z-10 fade">
-            <section class="flex flex-col mt-12">
-                <span class="my-5 text-3xl text-center text-secondary font-bold underline italic">Estatísticas</span>
-                <ol class="mb-44">
-                    @for (value of pokemon[0].stats; track pokemon[0].stats) {
-                    <li class="text-xl flex justify-between items-center capitalize">
-                        {{ value.stat.name }}
-                        <strong>
-                            {{ value.base_stat }}
-                        </strong>
-                    </li>
-                    }
-                </ol>
+        <article class="h-full flex flex-col px-10 z-10 fade">
+            <section class="h-full gap-10 flex flex-col">
 
-                <a [routerLink]="''" routerLinkActive="active" ariaCurrentWhenActive="page" class="h-14 text-white text-lg rounded-xl flex items-center justify-center bg-secondary">Voltar</a>
+                    <div>
+                        <span class="my-5 text-3xl flex justify-center text-secondary font-bold underline italic">Estatísticas</span>
+                        <ol>
+                            @for (value of pokemon[0].stats; track pokemon[0].stats) {
+                            <li class="text-lg flex justify-between items-center capitalize">
+                                {{ value.stat.name }}
+                                <strong>
+                                    {{ value.base_stat }}
+                                </strong>
+                            </li>
+                            }
+                        </ol>
+                    </div>
+
+                    <div class="space-y-2">
+                        <span class="text-xl text-secondary font-semibold underline italic">Type</span>
+                        <ol class="flex gap-5">
+                            @for (value of pokemon[0].types; track pokemon[0].types){
+                                <li [id]="value.type.name" class="size-1 px-10 py-3 bg-statusPokemon text-sm flex justify-center items-center rounded-full capitalize">
+                                    {{value.type.name}}
+                                </li>
+                            }
+                        </ol>
+                    </div>
             </section>
         </article>
+        <a [routerLink]="''" routerLinkActive="active" ariaCurrentWhenActive="page" class="h-14 m-5 text-white text-lg rounded-xl flex items-center justify-center bg-secondary">Voltar</a>
     </section>
     } @if (apiError) {
     <img src="./assets/error.png" alt="Erro ao carregar o pokemon" width="1000" />
