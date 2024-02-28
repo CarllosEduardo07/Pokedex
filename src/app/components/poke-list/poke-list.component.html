@@ -1,12 +1,12 @@
 <!-- pai -->
 <app-poke-search (emmitSearch)="onEmmitSearch($event)"></app-poke-search>
 <!-- button gif -->
-<app-check-image (changeImg)="onChangeImg()"></app-check-image>
+<app-check-image (changeImg)="onChangeImg()" class="sm:m-auto"></app-check-image>
 
 <!-- Paginação -->
 <!-- <app-pagination></app-pagination> -->
 
-@defer (on timer (1000ms)) {
+@defer (on timer (500ms)) {
 <section class="m-auto w-10/12 gap-5 flex flex-col sm:w-full sm:grid sm:grid-cols-2">
     @for (pokemon of getAllPokemons; track getAllPokemons) { @if (pokemon.status) {
     <a [routerLink]="'/details/' + pokemon.status.id" routerLinkActive="active" ariaCurrentWhenActive="page" class="w-full h-40 sm:h-44 flex justify-around bg-white rounded-lg fadeRight">
