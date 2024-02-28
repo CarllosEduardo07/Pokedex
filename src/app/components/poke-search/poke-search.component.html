@@ -1,4 +1,6 @@
-<form class="p-2 mb-1 flex justify-between items-center bg-zinc-600 rounded-lg fade">
-    <input type="text" placeholder="Buscar Pokemon..." #input (keyup)="search(input.value)" class="w-full p-1 text-lg bg-red-50 text-white bg-transparent placeholder:text-white outline-none" />
-    <img ngSrc="./assets/icons/search.svg" width="20" height="20" class="mx-2" alt="Buscar Pokemon" />
+<form class="flex justify-center items-center">
+    <div class="w-10/12 sm:w-full p-2 mb-1 flex justify-between items-center bg-zinc-600 rounded-lg fade">
+        <input type="text" placeholder="Buscar Pokemon..." #input (keyup)="search(input.value)" class="w-full p-1 text-lg bg-red-50 text-white bg-transparent placeholder:text-white outline-none" />
+        <img ngSrc="./assets/icons/search.svg" width="20" height="20" class="mx-2" alt="Buscar Pokemon" />
+    </div>
 </form>

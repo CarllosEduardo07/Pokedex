@@ -44,8 +44,6 @@ export class PokeListComponent implements OnInit {
                 this.apiError = true;
             },
         );
-        this.pagePokemon()
-        // console.log(this.pagePokemon())
     }
 
     // o evento do search, pegando tudo que o usuario digita
@@ -57,15 +55,15 @@ export class PokeListComponent implements OnInit {
     }
 
     // paginação
-    pagePokemon(page: number = 1) {
-        this.service.getPokemonPage().subscribe(res => {
-            if (res) {
-                this.page = res;
-                // passando a url next Page, para fazer a paginação
-                this.page = this.page.next;
-                // console.log(this.page);
-            }
-        });
-    }
+    // pagePokemon(page: number = 1) {
+    //     this.service.getPokemonPage().subscribe(res => {
+    //         if (res) {
+    //             this.page = res;
+    //             // passando a url next Page, para fazer a paginação
+    //             this.page = this.page.next;
+    //             // console.log(this.page);
+    //         }
+    //     });
+    // }
    
 }
