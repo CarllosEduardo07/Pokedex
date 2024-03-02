@@ -2,7 +2,7 @@
 Uma Pokedex desenvolvida com Angular 17, Tailwind CSS, conectando-se à API [PokeApi](https://pokeapi.co/). Inclui busca por Pokémon, animações e a capacidade de alternar entre imagens estáticas e GIFs animados.
 
 ##
-![Gravação-da-Pokedex-27-02-24](https://github.com/CarllosEduardo07/pokedex/assets/80606019/2c81ee72-57e7-440e-98af-d6d628547be4)
+![projeto-pokedex-github 02-03-2024](https://github.com/CarllosEduardo07/pokedex/assets/80606019/b3f08616-e861-4b2f-86d5-04d99ffbf380)
 ##
 
 Recursos Principais
