@@ -1,6 +1,6 @@
 <main class="m-auto w-11/12 sm:max-w-xl flex flex-col">
     <header class="my-5 flex justify-center items-center">
-        <img src="./assets/logo.svg" loading="eager" width="150" height="10" alt="Logo Pokedex">
+        <img src="./assets/logo.svg" loading="eager" width="150" height="10" alt="Logo Pokedex" />
     </header>
     @if (isLoading) {
     <section class="px-5 flex items-end flex-col justify-end">
@@ -23,7 +23,7 @@
         <!-- Estatisticas -->
         <article class="space-y-8 pb-5 flex flex-col px-10 z-10 fade justify-around">
             <div>
-                <span class="my-5 text-3xl flex justify-center text-secondary font-bold underline italic">Estatísticas</span>
+                <span class="mb-5 text-3xl flex justify-center text-secondary font-bold underline italic">Estatísticas</span>
                 <ol>
                     @for (value of pokemon[0].stats; track pokemon[0].stats) {
                     <li class="text-lg flex justify-between items-center capitalize">
@@ -35,6 +35,29 @@
                     }
                 </ol>
             </div>
+
+            <!-- About Pokemon -->
+            <div class="space-y-1 ">
+                <span class="text-xl text-secondary font-semibold underline italic">About</span>
+                <div class="space-x-1 flex items-center">
+                    <img src="./assets/icons/height.svg" class="size-5" alt="">
+                    <span class="text-sm text-zinc-500 font-semibold">Height: </span>
+                    <span class="text-sm">{{ pokemon[0].height }} M</span>
+                </div>
+                <div class="space-x-1 flex items-center">
+                    <img src="./assets/icons/weight.svg" class="size-5" alt="">
+                    <span class="text-sm text-zinc-500 font-semibold">Weight: </span>
+                    <span class="text-sm">{{ pokemon[0].weight }} KG</span>
+                </div>
+                <div class="space-x-1">
+                    <span class="text-sm text-zinc-500 font-semibold">Abilities: </span>
+                    <span class="text-sm capitalize">
+                        {{ pokemon[0].abilities[0].ability.name }},
+                        {{ pokemon[0].abilities[1].ability.name }}
+                    </span>
+                </div>
+            </div>
+
             <!-- tipo Pokemon -->
             <div class="space-y-2">
                 <span class="text-xl text-secondary font-semibold underline italic">Type</span>

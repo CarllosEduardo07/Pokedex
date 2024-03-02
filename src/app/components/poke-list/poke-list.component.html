@@ -29,11 +29,11 @@
 
         <section class="flex justify-center items-center">
             <picture class="flex items-center justify-center">
-                <img src="./assets/background/background-list-pokemons.svg" alt="fundo" class="mt-8 mr-10 absolute" />
+                <img src="./assets/background/background-list-pokemons.svg" alt="fundo" class="mt-8 mr-2 absolute" />
                 <img
                     [src]="pokemonImg ? pokemon.status.sprites.versions['generation-v']['black-white'].animated.front_default : pokemon.status.sprites.other.dream_world.front_default"
                     loading="eager"
-                    class="mt-8 w-20 h-auto z-10"
+                    class="mt-8 w-20 h-auto z-10 relative"
                     [alt]="pokemon.name"
                 />
             </picture>
