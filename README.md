@@ -15,7 +15,7 @@ Uma Pokedex desenvolvida com Angular 17, Tailwind CSS, conectando-se à API Poke
 <li>Tailwind CSS</li>
 
 
-## Demostração [Link do Projeto](https://pokedexportfolio.vercel.app/#/home)
+## Demonstração [Link do Projeto](https://pokedexportfolio.vercel.app/#/home)
 ![projeto-pokedex-github 02-03-2024](https://github.com/CarllosEduardo07/pokedex/assets/80606019/b3f08616-e861-4b2f-86d5-04d99ffbf380)
 
 <h2 id="libs">📚 Bibliotecas Usadas</h2>
